@@ -108,9 +108,9 @@ padding: 0 1em 2em;</code></pre><h4 id="1-3-4-每个选择器及属性独占一�
   margin: 0em;
 }</code></pre><p>推荐：</p>
 <pre><code>.header{
-  padding-bottom: 0px;
-  margin: 0em;
-}</code></pre><p>(四) SCSS 规范<br>1.4.1 代码组织<br>1)将公共scss文件放置在assets/styles/common文件夹<br>例:// color.scss,common.scss</p>
+  padding-bottom: 0;
+  margin: 0;
+}</code></pre><h3 id="四-SCSS-规范"><a href="#四-SCSS-规范" class="headerlink" title="(四) SCSS 规范"></a>(四) SCSS 规范</h3><h4 id="1-4-1-代码组织"><a href="#1-4-1-代码组织" class="headerlink" title="1.4.1 代码组织"></a>1.4.1 代码组织</h4><p>1)将公共scss文件放置在assets/styles/common文件夹<br>例:// color.scss,common.scss</p>
 <p>2)按以下顺序组织<br>1、@import;<br>2、变量声明;<br>3、样式声明;</p>
 <pre><code>@import &quot;mixins/size.scss&quot;;
 
@@ -481,7 +481,7 @@ export const reload = [
 }</code></pre><h3 id="二-Vue-项目目录规范"><a href="#二-Vue-项目目录规范" class="headerlink" title="(二) Vue 项目目录规范"></a>(二) Vue 项目目录规范</h3><h4 id="2-2-1-基础"><a href="#2-2-1-基础" class="headerlink" title="2.2.1 基础"></a>2.2.1 基础</h4><p>vue 项目中的所有命名一定要与后端命名统一。</p>
 <p>比如权限：后端 permission, 前端无论 router , store, api 等都必须使用 permission 单词！</p>
 <h4 id="2-2-2-使用-Vue-cli-脚手架"><a href="#2-2-2-使用-Vue-cli-脚手架" class="headerlink" title="2.2.2 使用 Vue-cli 脚手架"></a>2.2.2 使用 Vue-cli 脚手架</h4><p>使用 vue-cli3 来初始化项目，项目名按照上面的命名规范。</p>
-<h4 id="2-2-3-目录说明"><a href="#2-2-3-目录说明" class="headerlink" title="2.2.3 目录说明"></a>2.2.3 目录说明</h4><p>目录名按照上面的命名规范，其中 components 组件用大写驼峰，其余除 components 组件目录外的所有目录均使用 kebab-case 命名。</p>
+<h4 id="2-2-3-目录说明"><a href="#2-2-3-目录说明" class="headerlink" title="2.2.3 目录说明"></a>2.2.3 目录说明</h4><p>目录名按照上面的命名规范，其中 components 组件用大写驼峰，其余除 components 组件目录外的所有目录均使用 camelCase 命名。</p>
 <pre><code>src                               源码目录
 |-- api                              所有api接口
 |-- assets                           静态资源，images, icons, styles等
@@ -499,9 +499,9 @@ export const reload = [
 |-- themes                           自定义样式主题
 |-- views                            视图目录
 |   |-- role                             role模块名
-|   |-- |-- role-list.vue                    role列表页面
-|   |-- |-- role-add.vue                     role新建页面
-|   |-- |-- role-update.vue                  role更新页面
+|   |-- |-- roleList.vue                    role列表页面
+|   |-- |-- roleAdd.vue                     role新建页面
+|   |-- |-- roleUpdate.vue                  role更新页面
 |   |-- |-- index.less                      role模块样式
 |   |-- |-- components                      role模块通用组件文件夹
 |   |-- employee                         employee模块</code></pre><p>1) api 目录<br>文件、变量命名要与后端保持一致。<br>此目录对应后端 API 接口，按照后端一个 controller 一个 api js 文件。若项目较大时，可以按照业务划分子目录，并与后端保持一致。<br>api 中的方法名字要与后端 api url 尽量保持语义高度一致性。<br>对于 api 中的每个方法要添加注释，注释与后端 swagger 文档保持一致。<br>正例：</p>
@@ -586,16 +586,16 @@ export default {
 <pre><code>components 中组件要使用 PascalCase 规则
 |-- views                            视图目录
 |   |-- role                             role模块名
-|   |   |-- role-list.vue                    role列表页面
-|   |   |-- role-add.vue                     role新建页面
-|   |   |-- role-update.vue                  role更新页面
-|   |   |-- index.less                      role模块样式
+|   |   |-- roleList.vue                    role列表页面
+|   |   |-- roleAdd.vue                     role新建页面
+|   |   |-- roleUpdate.vue                  role更新页面
+|   |   |-- index.scss                      role模块样式
 |   |   |-- components                      role模块通用组件文件夹
-|   |   |   |-- role-header.vue                        role头部组件
-|   |   |   |-- role-modal.vue                         role弹出框组件
+|   |   |   |-- RoleHeader.vue                        role头部组件
+|   |   |   |-- RoleModal.vue                         role弹出框组件
 |   |-- employee                         employee模块
-|   |-- behavior-log                      行为日志log模块
-|   |-- code-generator                    代码生成器模块</code></pre><h4 id="2-2-4-注释说明"><a href="#2-2-4-注释说明" class="headerlink" title="2.2.4 注释说明"></a>2.2.4 注释说明</h4><p>整理必须加注释的地方</p>
+|   |-- behaviorLog                      行为日志log模块
+|   |-- codeGenerator                    代码生成器模块</code></pre><h4 id="2-2-4-注释说明"><a href="#2-2-4-注释说明" class="headerlink" title="2.2.4 注释说明"></a>2.2.4 注释说明</h4><p>整理必须加注释的地方</p>
 <p>公共组件使用说明<br>api 目录的接口 js 文件必须加注释<br>store 中的 state, mutation, action 等必须加注释<br>vue 文件中的 template 必须加注释，若文件较大添加 start end 注释<br>vue 文件的 methods，每个 method 必须添加注释<br>vue 文件的 data, 非常见单词要加注释</p>
 <h4 id="2-2-5-其他"><a href="#2-2-5-其他" class="headerlink" title="2.2.5 其他"></a>2.2.5 其他</h4><p>1) 尽量不要手动操作 DOM<br>因使用 vue 框架，所以在项目开发中尽量使用 vue 的数据驱动更新 DOM，尽量（不到万不得已）不要手动操作 DOM，包括：增删改 dom 元素、以及更改样式、添加事件等。</p>
 <p>2) 删除无用代码<br>因使用了 git/svn 等代码版本工具，对于无用代码必须及时删除，例如：一些调试的 console 语句、无用的弃用功能代码。</p>
